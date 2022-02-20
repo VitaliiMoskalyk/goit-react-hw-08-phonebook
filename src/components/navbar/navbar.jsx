@@ -13,6 +13,7 @@ export default function Navbar() {
       sx={{ flexGrow: 1 }}
       style={{
         position: 'fixed',
+        zIndex: 1,
         top: '0',
         width: '100%',
       }}

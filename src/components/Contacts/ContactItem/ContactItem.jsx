@@ -22,11 +22,11 @@ const ContactItem = ({ contact, deleteFunction }) => {
         <Image src={avatar} alt={name} />
         <FlexContact>
           <Name>{name}</Name>
-          <Number>{phone}</Number>
+
+          <Number href={`tel:${phone}`}>Call</Number>
           <p>
-            Delete contact
             <Button type="button" onClick={() => deleteFunction(id)}>
-              -
+              X
             </Button>
           </p>
         </FlexContact>
