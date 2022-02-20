@@ -16,34 +16,18 @@ const ContactItem = ({ contact, deleteFunction }) => {
 
   return (
     <>
-      {/* <Accordion.Item eventKey={id}>
-        <Accordion.Header> */}
       <ItemWrapper>
         <Image src={avatar} alt={name} />
         <FlexContact>
           <Name>{name}</Name>
 
           <Number href={`tel:${phone}`}>Call</Number>
-          <p>
-            <Button type="button" onClick={() => deleteFunction(id)}>
-              X
-            </Button>
-          </p>
+
+          <Button type="button" onClick={() => deleteFunction(id)}>
+            X
+          </Button>
         </FlexContact>
       </ItemWrapper>
-      {/* </Accordion.Header>
-        <Accordion.Body> */}
-      {/* <p>{email}</p>
-      <p>{company}</p>
-
-      <p>
-        Delete contact
-        <Button type="button" onClick={() => deleteFunction(id)}>
-          -
-        </Button>
-      </p> */}
-      {/* </Accordion.Body>
-      </Accordion.Item> */}
     </>
   );
 };

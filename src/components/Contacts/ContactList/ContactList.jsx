@@ -4,7 +4,6 @@ import Stack from '@mui/material/Stack';
 import Spinner from '../../Spinner';
 // import toast from 'react-hot-toast';
 // import { ConfirmDelete } from '../../confirmDelete/ConfirmDelete';
-
 import {
   useGetContactsQuery,
   useDeleteContactMutation,
