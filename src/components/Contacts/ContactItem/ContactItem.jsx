@@ -1,15 +1,15 @@
 import propTypes from 'prop-types';
+import IconButton from '@mui/material/IconButton';
+import CallIcon from '@mui/icons-material/Call';
 // import defaultImage from '../../images/default.png';
+import CloseIcon from '@mui/icons-material/Close';
 import {
   ItemWrapper,
   Image,
   Name,
   Number,
   FlexContact,
-  Button,
 } from './contactItem.styled';
-// import { deleteIcon } from '../../images/delete';
-// import { Accordion } from 'react-bootstrap';
 
 const ContactItem = ({ contact, deleteFunction }) => {
   const { id, name, phone, avatar } = contact;
@@ -21,11 +21,20 @@ const ContactItem = ({ contact, deleteFunction }) => {
         <FlexContact>
           <Name>{name}</Name>
 
-          <Number href={`tel:${phone}`}>Call</Number>
+          <Number href={`tel:${phone}`}>
+            <IconButton size="small" color="success">
+              <CallIcon fontSize="large" />
+            </IconButton>
+          </Number>
 
-          <Button type="button" onClick={() => deleteFunction(id)}>
-            X
-          </Button>
+          <IconButton
+            size="small"
+            style={{ position: 'absolute', top: '5px', right: '5px' }}
+            onClick={() => deleteFunction(id)}
+            sx={{ color: 'red' }}
+          >
+            <CloseIcon fontSize="small" />
+          </IconButton>
         </FlexContact>
       </ItemWrapper>
     </>

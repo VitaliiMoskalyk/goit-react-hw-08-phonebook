@@ -1,21 +1,14 @@
-import Navbar from './navbar';
-import ContactList from './Contacts/ContactList';
 import { Routes, Route } from 'react-router-dom';
-import Form from './Form/Form';
+import { HomeView } from 'views/HomeView';
+import { UserView } from 'views/UserView';
+import { FormView } from 'views/FormView';
 export const App = () => {
   return (
     <>
       <Routes>
-        <Route
-          index
-          element={
-            <>
-              <Navbar />
-              <ContactList />
-            </>
-          }
-        />
-        <Route path="add" element={<Form />} />
+        <Route index element={<HomeView />} />
+        <Route path="user" element={<UserView />} />
+        <Route path="user/add" element={<FormView />} />
       </Routes>
     </>
   );

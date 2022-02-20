@@ -6,9 +6,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Filter from 'components/Filter/Filter';
-// import MenuIcon from '@mui/icons-material/Menu';
+import AddIcon from '@mui/icons-material/Add';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-export default function Navbar() {
+export default function Navbar({ search, list, login, form }) {
   let navigate = useNavigate();
   return (
     <>
@@ -21,24 +24,49 @@ export default function Navbar() {
           width: '100%',
         }}
       >
-        <AppBar position="static">
+        <AppBar position="static" style={{ height: '80px' }}>
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-              onClick={() => navigate('add')}
-            >
-              <p>+</p>
-              {/* <MenuIcon /> */}
-            </IconButton>
+            {search && (
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+                onClick={() => navigate('add')}
+              >
+                <AddIcon />
+              </IconButton>
+            )}
+
+            {form && (
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+                onClick={() => navigate(-1)}
+              >
+                <ArrowBackIcon />
+              </IconButton>
+            )}
+
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Contacts
             </Typography>
-            <Filter />
-            <Button color="inherit">Login</Button>
+
+            {list && <Filter />}
+
+            {login ? (
+              <Button color="inherit">
+                <LoginIcon />
+              </Button>
+            ) : (
+              <Button color="inherit">
+                <LogoutIcon />
+              </Button>
+            )}
           </Toolbar>
         </AppBar>
       </Box>

@@ -9,7 +9,7 @@ display: flex;
 flex-direction:column;
 /* justify-content:center; */
 align-items:center;
-width:170px;
+width:220px;
 height:250px;
 
 border-radius:6px;

@@ -2,14 +2,10 @@ import ContactItem from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 import Stack from '@mui/material/Stack';
 import Spinner from '../../Spinner';
-// import toast from 'react-hot-toast';
-// import { ConfirmDelete } from '../../confirmDelete/ConfirmDelete';
 import {
   useGetContactsQuery,
   useDeleteContactMutation,
 } from '../../../fetch/mockApi/mockApi';
-// import { Loader } from '../../Loader/Loader';
-// import { Accordion } from 'react-bootstrap';
 
 const ContactList = () => {
   const { data, error, isFetching } = useGetContactsQuery('users');
@@ -38,7 +34,7 @@ const ContactList = () => {
           justifyContent="center"
           style={{ marginTop: '120px' }}
         >
-          {findForFilter().length === 0 && <p>you don`t have contacts</p>}
+          {findForFilter().length === 0 && <p>no contacts</p>}
           {findForFilter().map(contact => (
             <div key={contact.createdAt}>
               <ContactItem
