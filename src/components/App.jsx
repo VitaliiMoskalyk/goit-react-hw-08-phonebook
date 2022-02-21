@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <>
       <Routes>
-//         {<Route index element={<HomeView />} />}
+
 
         <Route index element={<UserView />} />
         <Route path="user" element={<HomeView />} />
