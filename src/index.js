@@ -5,12 +5,15 @@ import { App } from 'components/App';
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
 import './index.css';
+import Container from '@mui/material/Container';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <Container fixed>
+          <App />
+          </Container>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,

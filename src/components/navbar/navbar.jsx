@@ -21,6 +21,7 @@ export default function Navbar({ search, list, login, form }) {
           position: 'fixed',
           zIndex: 1,
           top: '0',
+          left: 0,
           width: '100%',
         }}
       >
