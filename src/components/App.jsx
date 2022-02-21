@@ -8,9 +8,9 @@ export const App = () => {
       <Routes>
 
 
-        <Route index element={<UserView />} />
+        <Route path="/" element={<UserView />} />
         <Route path="user" element={<HomeView />} />
-        <Route path="user/add" element={<FormView />} />
+        <Route path="add" element={<FormView />} />
       </Routes>
     </>
   );
