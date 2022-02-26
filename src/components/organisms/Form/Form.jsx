@@ -3,7 +3,7 @@ import { FormWrapper } from './Form.styled';
 import {
   useAddContactMutation,
   useGetContactsQuery,
-} from '../../fetch/mockApi/mockApi';
+} from '../../../fetch/mockApi/mockApi';
 import { TextField } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import AddIcCallIcon from '@mui/icons-material/AddIcCall';

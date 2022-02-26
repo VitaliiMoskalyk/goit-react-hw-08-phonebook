@@ -1,7 +1,7 @@
-import ContactItem from '../ContactItem/ContactItem';
+import ContactItem from '../../molecules/ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 import Stack from '@mui/material/Stack';
-import Spinner from '../../Spinner';
+import Spinner from '../Spinner';
 import {
   useGetContactsQuery,
   useDeleteContactMutation,

@@ -1,7 +1,7 @@
-import Form from 'components/Form/Form';
+import Form from 'components/organisms/Form/Form';
 import Navbar from 'components/navbar/navbar';
 
-export function FormView() {
+export function AddContactView() {
   return (
     <>
       <Navbar form />
