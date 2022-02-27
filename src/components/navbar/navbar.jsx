@@ -1,5 +1,5 @@
 import AppBar from '@mui/material/AppBar';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -7,11 +7,11 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Filter from 'components/organisms/Filter';
 import AddIcon from '@mui/icons-material/Add';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
-export default function Navbar({ search, list, login, form }) {
+export default function Navbar() {
   let navigate = useNavigate();
   return (
     <>
@@ -27,50 +27,50 @@ export default function Navbar({ search, list, login, form }) {
       >
         <AppBar position="static" style={{ height: '80px' }}>
           <Toolbar>
-            {search && (
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-                onClick={() => navigate('add')}
-              >
-                <AddIcon />
-              </IconButton>
-            )}
-
-            {form && (
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-                onClick={() => navigate(-1)}
-              >
-                <ArrowBackIcon />
-              </IconButton>
-            )}
-
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={() => navigate('add')}
+            >
+              <AddIcon />
+            </IconButton>
+            {/* <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={() => navigate('/')}
+            >
+              <ArrowBackIcon />
+            </IconButton> */}
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1 }}
+              onClick={() => navigate('/')}
+            >
               Contacts
             </Typography>
+            <Filter />
+            <Button color="inherit" onClick={() => navigate('login')}>
+              <LoginIcon />
+            </Button>
 
-            {list && <Filter />}
+            <Button color="inherit">
+              <LogoutIcon />
+            </Button>
 
-            {login ? (
-              <Button color="inherit">
-                <LoginIcon />
-              </Button>
-            ) : (
-              <Button color="inherit">
-                <LogoutIcon />
-              </Button>
-            )}
+            <Button color="inherit" onClick={() => navigate('register')}>
+              <PersonAddAltIcon />
+            </Button>
           </Toolbar>
         </AppBar>
       </Box>
+      <Outlet />
     </>
   );
 }

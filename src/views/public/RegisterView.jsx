@@ -2,11 +2,15 @@ import { TextField } from '@mui/material';
 import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import { FormWrapper } from '../../components/organisms/Form/Form.styled';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/authSlice';
 
 export const RegisterView = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
 
   //   const onSubmitForm = result => {
   //     const contactName = result.name;
@@ -20,6 +24,8 @@ export const RegisterView = () => {
     evt.preventDefault();
     const newUser = generateContact(name, email, password);
     console.log(newUser);
+    // dispatch(registerUser(newUser));
+    dispatch(register(newUser));
     // onSubmitForm(newUser);
     // toast.success(`${name} added`);
     setName('');
