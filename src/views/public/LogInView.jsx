@@ -1,7 +1,8 @@
-import { TextField } from '@mui/material';
+import EmailLabel from 'components/atoms/inputs/labels/EmailLabel';
+import PasswordLabel from 'components/atoms/inputs/labels/PasswordLabel';
 import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
-import { FormWrapper } from '../../components/organisms/Form/Form.styled';
+import { FormWrapper } from '../../components/molecules/FormWrapper&Submit/FormWrapper';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/authSlice';
 
@@ -37,40 +38,12 @@ export const LoginView = () => {
 
   return (
     <FormWrapper onSubmit={userAdder} style={{ marginTop: '120px' }}>
-      <TextField
-        id="e-mail"
-        label="E-mail"
-        value={email}
-        variant="outlined"
-        onChange={e => setEmail(e.target.value)}
-        title="example@mail.com"
-        type="mail"
-        autoComplete="off"
-        size="small"
-        margin="normal"
-        // inputProps={{
-        //   pattern: '^\\+[\\(\\-]?(\\d[\\(\\)\\-]?){11}\\d$',
-        //   // '+?d{1,4}?[-.s]?(?d{1,3}?)?[-.s]?d{1,4}[-.s]?d{1,4}[-.s]?d{1,9}',
-        // }}
-        required
-      />
-      <TextField
-        id="password"
-        label="Password"
+      <EmailLabel value={email} onchange={e => setEmail(e.target.value)} />
+      <PasswordLabel
         value={password}
-        variant="outlined"
-        onChange={e => setPassword(e.target.value)}
-        title="********"
-        type="password"
-        autoComplete="off"
-        size="small"
-        margin="normal"
-        // inputProps={{
-        //   pattern: '^\\+[\\(\\-]?(\\d[\\(\\)\\-]?){11}\\d$',
-        //   // '+?d{1,4}?[-.s]?(?d{1,3}?)?[-.s]?d{1,4}[-.s]?d{1,4}[-.s]?d{1,9}',
-        // }}
-        required
+        onchange={e => setPassword(e.target.value)}
       />
+
       <IconButton
         size="large"
         edge="start"

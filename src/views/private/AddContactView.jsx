@@ -1,9 +1,5 @@
-import Form from 'components/organisms/Form/Form';
+import { AddContactForm } from 'components/organisms/AddContactForm/AddContactForm';
 
-export function AddContactView() {
-  return (
-    <>
-      <Form />
-    </>
-  );
+export default function AddContactView() {
+  return <AddContactForm />;
 }
