@@ -7,6 +7,7 @@ import {
 import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import NameLabel from 'components/atoms/inputs/labels/NameLabel';
 import PhoneLabel from 'components/atoms/inputs/labels/PhoneLabel';
+import { useNavigate } from 'react-router-dom';
 
 export const AddContactForm = () => {
   const [name, setName] = useState('');
@@ -14,6 +15,8 @@ export const AddContactForm = () => {
 
   const [updatePost] = useAddContactMutation();
   const { data } = useGetContactsQuery();
+
+  const navigate = useNavigate();
 
   const onSubmitForm = result => {
     const contactName = result.name;
@@ -28,6 +31,7 @@ export const AddContactForm = () => {
     const newContact = generateContact(name, phone);
     onSubmitForm(newContact);
     // toast.success(`${name} added`);
+    navigate('/');
     setName('');
     setPhone('');
   };

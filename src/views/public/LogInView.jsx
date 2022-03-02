@@ -5,13 +5,14 @@ import IconButton from '@mui/material/IconButton';
 import { FormWrapper } from '../../components/molecules/FormWrapper&Submit/FormWrapper';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginView = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   //   const onSubmitForm = result => {
   //     const contactName = result.name;
   //     const normolizeData = contactName.toLowerCase();
@@ -28,6 +29,7 @@ export const LoginView = () => {
     dispatch(login(newUser));
     // onSubmitForm(newUser);
     // toast.success(`${name} added`);
+    navigate('/');
     setEmail('');
     setPassword('');
   };
