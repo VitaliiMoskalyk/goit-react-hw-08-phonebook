@@ -8,6 +8,7 @@ import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import NameLabel from 'components/atoms/inputs/labels/NameLabel';
 import PhoneLabel from 'components/atoms/inputs/labels/PhoneLabel';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export const AddContactForm = () => {
   const [name, setName] = useState('');
@@ -17,6 +18,7 @@ export const AddContactForm = () => {
   const { data } = useGetContactsQuery();
 
   const navigate = useNavigate();
+  let authSelector = useSelector(state => state.auth.isLoaded);
 
   const onSubmitForm = result => {
     const contactName = result.name;
@@ -41,9 +43,14 @@ export const AddContactForm = () => {
   };
 
   return (
-    <FormWrapper onSubmit={contactsAdder} submitButton={<AddIcCallIcon />}>
-      <NameLabel value={name} onchange={evt => setName(evt.target.value)} />
-      <PhoneLabel value={phone} onchange={evt => setPhone(evt.target.value)} />
-    </FormWrapper>
+    authSelector && (
+      <FormWrapper onSubmit={contactsAdder} submitButton={<AddIcCallIcon />}>
+        <NameLabel value={name} onchange={evt => setName(evt.target.value)} />
+        <PhoneLabel
+          value={phone}
+          onchange={evt => setPhone(evt.target.value)}
+        />
+      </FormWrapper>
+    )
   );
 };

@@ -13,21 +13,11 @@ export const LoginView = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //   const onSubmitForm = result => {
-  //     const contactName = result.name;
-  //     const normolizeData = contactName.toLowerCase();
-  //     data.find(contact => contact.name.toLowerCase() === normolizeData);
-  //     // ? toast.error(`${contactName} is already in contacts`)
-  //     updatePost(result);
-  //   };
 
   const userAdder = evt => {
     evt.preventDefault();
     const newUser = generateContact(email, password);
-    console.log(newUser);
-    // dispatch(registerUser(newUser));
     dispatch(login(newUser));
-    // onSubmitForm(newUser);
     // toast.success(`${name} added`);
     navigate('/');
     setEmail('');
