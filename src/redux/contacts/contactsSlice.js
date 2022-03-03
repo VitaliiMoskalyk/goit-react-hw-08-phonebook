@@ -16,12 +16,12 @@ const contactSlice = createSlice({
                 state.isFetching = true;  
         },
         [getContacts.fulfilled]: (state, action) => {
-            state.contacts = action.payload;
+            state.contacts=(action.payload);
             state.isFetching = false;
             
         },
         [postContact.fulfilled]: (state, action) => {
-            state.contacts = action.payload;
+            state.contacts=state.contacts.push(action.payload);
             state.isFetching = false
         },
         // [logout.fulfilled]: (state, action) => {

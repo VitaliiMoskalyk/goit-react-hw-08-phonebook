@@ -14,6 +14,7 @@ const ContactList = () => {
   }, [dispatch]);
 
   const { contacts, error, isFetching } = useSelector(state => state.contacts);
+
   console.log(contacts);
   // const [deleteContact] = useDeleteContactMutation();
 
@@ -23,8 +24,9 @@ const ContactList = () => {
   // };
 
   const findForFilter = () => {
-    contacts.filter(({ name }) =>
-      name.toLowerCase().includes(search.toLowerCase())
+    contacts.filter(
+      ({ name }) => name
+      // .toLowerCase().includes(search.toLowerCase())
     );
   };
 
