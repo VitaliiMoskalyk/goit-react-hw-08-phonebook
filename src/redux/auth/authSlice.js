@@ -31,19 +31,21 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk(
     '/users/logout',
-    async credentials=> {
-        const {data} = await axios.post('https://connections-api.herokuapp.com/users/logout',credentials);
+    async credentials => {
+        const { data } = await axios.post('https://connections-api.herokuapp.com/users/logout', credentials);
         token.unset()
         return data;
     }
-)
-const authSlice = createSlice({
-    name:'auth',
-    initialState: {
-        user: { name: null, email: null },
+);
+
+const initialState = {
+    user: { name: null, email: null },
         token: null,
         isLoaded: false
-    },
+}
+const authSlice = createSlice({
+    name:'auth',
+    initialState,
     // reducers: {
     //     registerUser:(state, action)=> {
     //         state.user = action.payload;
@@ -63,8 +65,9 @@ const authSlice = createSlice({
             state.isLoaded = true;
         },
         [logout.fulfilled]: (state, action) => {
-            // state.user = action.payload.user;
-            state.token = action.payload.token;
+            state.user.name = null;
+            state.user.email=null;
+            state.token = null;
             state.isLoaded = false;
         },
         // [authFetch.rejected]:(state,action)=>{},
