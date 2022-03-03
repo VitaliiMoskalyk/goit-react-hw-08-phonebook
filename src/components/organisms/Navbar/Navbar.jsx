@@ -10,7 +10,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import AppButton from 'components/atoms/buttons/AppButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from 'redux/auth/authSlice';
+import { logout } from 'redux/auth/authOperations';
 
 export default function Navbar() {
   let navigate = useNavigate();

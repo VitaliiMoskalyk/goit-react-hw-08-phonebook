@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../../redux/contacts/action';
+import * as actions from '../../../redux/filter/filterAction';
 import Search from '../../atoms/inputs/search';
 
 const Filter = () => {

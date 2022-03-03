@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/authSlice';
+import { register } from 'redux/auth/authOperations';
 import { FormWrapper } from 'components/molecules/FormWrapper&Submit/FormWrapper';
 import NameLabel from 'components/atoms/inputs/labels/NameLabel';
 import EmailLabel from 'components/atoms/inputs/labels/EmailLabel';
