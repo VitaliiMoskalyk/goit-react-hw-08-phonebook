@@ -17,7 +17,7 @@ const contactSlice = createSlice({
         },
         [getContacts.fulfilled]: (state, action) => {
             state.contacts = action.payload;
-            state.isFetching = true;
+            state.isFetching = false;
             
         },
         [postContact.fulfilled]: (state, action) => {

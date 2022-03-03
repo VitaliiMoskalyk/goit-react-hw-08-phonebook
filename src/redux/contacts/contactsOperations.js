@@ -4,10 +4,14 @@ import {createAsyncThunk } from '@reduxjs/toolkit';
 export const getContacts = createAsyncThunk(
     '/contacts',
     async credentials => {
-        const { data } = await axios.get('https://connections-api.herokuapp.com/contacts', credentials)
-            
+       try {
+            const {data} = await axios.get('https://connections-api.herokuapp.com/contacts',credentials);
         
         return data;
+        }
+        catch {
+            
+        }
     }
 );
 

@@ -12,8 +12,9 @@ const ContactList = () => {
   useEffect(() => {
     dispatch(getContacts());
   }, [dispatch]);
+
   const { contacts, error, isFetching } = useSelector(state => state.contacts);
-  // console.log(contacts);
+  console.log(contacts);
   // const [deleteContact] = useDeleteContactMutation();
 
   // const deleteContacts = contact => {
@@ -31,14 +32,14 @@ const ContactList = () => {
     <>
       {isFetching && <Spinner />}
       {error && <p>/{error.status}</p>}
-      {contacts.length >= 0 && (
+      {contacts && (
         <Stack
           direction="row"
           flexWrap="wrap"
           justifyContent="center"
           style={{ marginTop: '120px' }}
         >
-          {findForFilter() === 'undefined' && <p>no contacts</p>}
+          {findForFilter().length === 0 && <p>no contacts</p>}
           {findForFilter().map(contact => (
             <div key={contact.id}>
               <ContactItem
