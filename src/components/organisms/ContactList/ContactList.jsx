@@ -1,45 +1,49 @@
 import ContactItem from '../../molecules/ContactItem/ContactItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Stack from '@mui/material/Stack';
 import Spinner from '../Spinner';
-import {
-  useGetContactsQuery,
-  useDeleteContactMutation,
-} from '../../../fetch/mockApi/mockApi';
+import { getContacts } from 'redux/contacts/contactsOperations';
+import { useEffect } from 'react';
 
 const ContactList = () => {
-  const { data, error, isFetching } = useGetContactsQuery('users');
-  const filter = useSelector(({ filter }) => filter);
+  const search = useSelector(({ search }) => search);
+  const dispatch = useDispatch();
 
-  const [deleteContact] = useDeleteContactMutation();
+  useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
+  const { contacts, error, isFetching } = useSelector(state => state.contacts);
+  // console.log(contacts);
+  // const [deleteContact] = useDeleteContactMutation();
 
-  const deleteContacts = contact => {
-    deleteContact(contact.id);
-    // toast.success(`${contact.name} removed`);
-  };
+  // const deleteContacts = contact => {
+  //   deleteContact(contact.id);
+  //   // toast.success(`${contact.name} removed`);
+  // };
 
-  const findForFilter = () =>
-    data.filter(({ name }) =>
-      name.toLowerCase().includes(filter.toLowerCase())
+  const findForFilter = () => {
+    contacts.filter(({ name }) =>
+      name.toLowerCase().includes(search.toLowerCase())
     );
+  };
 
   return (
     <>
       {isFetching && <Spinner />}
       {error && <p>/{error.status}</p>}
-      {data && (
+      {contacts.length >= 0 && (
         <Stack
           direction="row"
           flexWrap="wrap"
           justifyContent="center"
           style={{ marginTop: '120px' }}
         >
-          {findForFilter().length === 0 && <p>no contacts</p>}
+          {findForFilter() === 'undefined' && <p>no contacts</p>}
           {findForFilter().map(contact => (
-            <div key={contact.createdAt}>
+            <div key={contact.id}>
               <ContactItem
                 contact={contact}
-                deleteFunction={() => deleteContacts(contact)}
+                // deleteFunction={() => deleteContacts(contact)}
               />
             </div>
           ))}

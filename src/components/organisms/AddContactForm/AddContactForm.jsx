@@ -1,21 +1,22 @@
 import { useState } from 'react';
 import { FormWrapper } from '../../molecules/FormWrapper&Submit/FormWrapper';
-import {
-  useAddContactMutation,
-  useGetContactsQuery,
-} from '../../../fetch/mockApi/mockApi';
+// import {
+//   useAddContactMutation,
+//   useGetContactsQuery,
+// } from '../../../fetch/mockApi/mockApi';
 import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import NameLabel from 'components/atoms/inputs/labels/NameLabel';
 import PhoneLabel from 'components/atoms/inputs/labels/PhoneLabel';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { postContact } from 'redux/contacts/contactsOperations';
 
 export const AddContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setPhone] = useState('');
 
-  const [updatePost] = useAddContactMutation();
-  const { data } = useGetContactsQuery();
+  const dispatch = useDispatch();
+  const data = useSelector(state => state.contacts.contacts);
 
   const navigate = useNavigate();
   let authSelector = useSelector(state => state.auth.isLoaded);
@@ -25,12 +26,12 @@ export const AddContactForm = () => {
     const normolizeData = contactName.toLowerCase();
     data.find(contact => contact.name.toLowerCase() === normolizeData);
     // ? toast.error(`${contactName} is already in contacts`)
-    updatePost(result);
+    dispatch(postContact(result));
   };
 
   const contactsAdder = evt => {
     evt.preventDefault();
-    const newContact = generateContact(name, phone);
+    const newContact = generateContact(name, number);
     onSubmitForm(newContact);
     // toast.success(`${name} added`);
     navigate('/');
@@ -38,8 +39,8 @@ export const AddContactForm = () => {
     setPhone('');
   };
 
-  const generateContact = (name, phone) => {
-    return { name, phone };
+  const generateContact = (name, number) => {
+    return { name, number };
   };
 
   return (
@@ -47,7 +48,7 @@ export const AddContactForm = () => {
       <FormWrapper onSubmit={contactsAdder} submitButton={<AddIcCallIcon />}>
         <NameLabel value={name} onchange={evt => setName(evt.target.value)} />
         <PhoneLabel
-          value={phone}
+          value={number}
           onchange={evt => setPhone(evt.target.value)}
         />
       </FormWrapper>

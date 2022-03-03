@@ -12,7 +12,7 @@ import {
 } from './contactItem.styled';
 
 const ContactItem = ({ contact, deleteFunction }) => {
-  const { id, name, phone } = contact;
+  const { id, name, number } = contact;
 
   return (
     <>
@@ -21,7 +21,7 @@ const ContactItem = ({ contact, deleteFunction }) => {
         <FlexContact>
           <Name>{name}</Name>
 
-          <Number href={`tel:${phone}`}>
+          <Number href={`tel:${number}`}>
             <IconButton size="small" color="success">
               <CallIcon fontSize="large" />
             </IconButton>

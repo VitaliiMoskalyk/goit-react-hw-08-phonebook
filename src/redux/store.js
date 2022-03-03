@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { contactsReducer } from './filter/filterReducer';
 import userReducer from './auth/authSlice'
-import { contactsApi } from 'fetch/mockApi/mockApi';
+import contactReduser from 'redux/contacts/contactsSlice'
 
 export const store = configureStore({
     reducer: {
-        filter: contactsReducer,
+        search: contactsReducer,
         auth:userReducer,
-        [contactsApi.reducerPath]:contactsApi.reducer,
+        contacts:contactReduser,
     },
-    middleware:getDefaultMiddleware=>getDefaultMiddleware().concat(contactsApi.middleware)
+    middleware:getDefaultMiddleware=>getDefaultMiddleware()
 });
 
