@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import Spinner from '../Spinner';
 import { getContacts, deleteContact } from 'redux/contacts/contactsOperations';
 import { useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ContactList = () => {
   const search = useSelector(({ search }) => search);
@@ -15,12 +16,10 @@ const ContactList = () => {
 
   const { contacts, error, isFetching } = useSelector(state => state.contacts);
 
-  // const [deleteContact] = dispatch(deleteContact());
-
   const deleteContacts = contact => {
     dispatch(deleteContact(contact.id));
     dispatch(getContacts());
-    // toast.success(`${contact.name} removed`);
+    toast.success(`${contact.name} removed`);
   };
 
   function findForFilter() {
@@ -52,6 +51,7 @@ const ContactList = () => {
         </Stack>
       )}
       {error && <p>/{error.status}</p>}
+      <Toaster />
     </>
   );
 };

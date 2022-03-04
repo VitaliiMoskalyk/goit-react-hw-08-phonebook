@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import { FormWrapper } from '../../molecules/FormWrapper&Submit/FormWrapper';
-// import {
-//   useAddContactMutation,
-//   useGetContactsQuery,
-// } from '../../../fetch/mockApi/mockApi';
 import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import NameLabel from 'components/atoms/inputs/labels/NameLabel';
 import PhoneLabel from 'components/atoms/inputs/labels/PhoneLabel';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postContact } from 'redux/contacts/contactsOperations';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const AddContactForm = () => {
   const [name, setName] = useState('');
@@ -24,17 +21,17 @@ export const AddContactForm = () => {
   const onSubmitForm = result => {
     const contactName = result.name;
     const normolizeData = contactName.toLowerCase();
-    !data.find(result => result.name.toLowerCase() === normolizeData) &&
-      dispatch(postContact(result));
-    // ? toast.error(`${contactName} is already in contacts`)
+    return data.find(result => result.name.toLowerCase() === normolizeData)
+      ? null
+      : dispatch(postContact(result));
   };
 
   const contactsAdder = evt => {
     evt.preventDefault();
     const newContact = generateContact(name, number);
-    onSubmitForm(newContact);
-    // toast.success(`${name} added`);
-    navigate('/');
+    onSubmitForm(newContact)
+      ? navigate('/')
+      : toast.error(`${name} is already in contacts`);
     setName('');
     setPhone('');
   };
@@ -47,10 +44,13 @@ export const AddContactForm = () => {
     authSelector && (
       <FormWrapper onSubmit={contactsAdder} submitButton={<AddIcCallIcon />}>
         <NameLabel value={name} onchange={evt => setName(evt.target.value)} />
+
         <PhoneLabel
           value={number}
           onchange={evt => setPhone(evt.target.value)}
         />
+
+        <Toaster />
       </FormWrapper>
     )
   );

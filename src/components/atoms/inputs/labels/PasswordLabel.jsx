@@ -1,4 +1,5 @@
 import { TextField } from '@mui/material';
+import propTypes from 'prop-types';
 
 export default function PasswordLabel({ value, onchange }) {
   return (
@@ -21,3 +22,7 @@ export default function PasswordLabel({ value, onchange }) {
     />
   );
 }
+PasswordLabel.prototype = {
+  value: propTypes.string.isRequired,
+  onChange: propTypes.func,
+};

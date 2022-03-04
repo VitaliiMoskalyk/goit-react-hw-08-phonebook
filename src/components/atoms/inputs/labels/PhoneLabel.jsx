@@ -1,4 +1,5 @@
 import { TextField } from '@mui/material';
+import propTypes from 'prop-types';
 
 export default function PhoneLabel({ value, onchange }) {
   return (
@@ -20,3 +21,8 @@ export default function PhoneLabel({ value, onchange }) {
     />
   );
 }
+
+PhoneLabel.prototype = {
+  value: propTypes.string.isRequired,
+  onChange: propTypes.func,
+};

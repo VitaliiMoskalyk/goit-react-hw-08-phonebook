@@ -1,7 +1,6 @@
 import propTypes from 'prop-types';
 import IconButton from '@mui/material/IconButton';
 import CallIcon from '@mui/icons-material/Call';
-import defaultImage from 'components/atoms/images/default.png';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   ItemWrapper,
@@ -10,6 +9,8 @@ import {
   Number,
   FlexContact,
 } from './contactItem.styled';
+//do as LAZY
+import defaultImage from 'components/atoms/images/default.png';
 
 const ContactItem = ({ contact, deleteFunction }) => {
   const { id, name, number } = contact;

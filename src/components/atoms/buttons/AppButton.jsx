@@ -1,4 +1,5 @@
 import IconButton from '@mui/material/IconButton';
+import propTypes from 'prop-types';
 
 export default function AppButton({ children, onClick }) {
   return (
@@ -15,3 +16,7 @@ export default function AppButton({ children, onClick }) {
     </IconButton>
   );
 }
+AppButton.propTypes = {
+  children: propTypes.node,
+  onClick: propTypes.func,
+};

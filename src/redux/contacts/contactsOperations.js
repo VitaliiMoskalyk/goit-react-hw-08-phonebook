@@ -6,11 +6,9 @@ export const getContacts = createAsyncThunk(
     async credentials => {
        try {
             const {data} = await axios.get('https://connections-api.herokuapp.com/contacts',credentials);
-        console.log(data);
         return data;
         }
-        catch {
-            
+        catch {  
         }
     }
 );
@@ -20,21 +18,22 @@ export const postContact = createAsyncThunk(
     async credentials => {
         try {
             const {data} = await axios.post('https://connections-api.herokuapp.com/contacts',credentials);
-        
         return data;
         }
-        catch {
-            
-        }
-        
+        catch { 
+        }  
     }
 )
 
 export const deleteContact = createAsyncThunk(
     '/contacts/delete',
     async contactId => {
-        const { data } = await axios.delete(`https://connections-api.herokuapp.com/contacts/${contactId}`, contactId);
-      
+        try {
+            const { data } = await axios.delete(`https://connections-api.herokuapp.com/contacts/${contactId}`, contactId);
         return data;
+        }
+        catch {
+            
+        }
     }
 );

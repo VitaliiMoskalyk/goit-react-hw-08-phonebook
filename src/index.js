@@ -10,11 +10,13 @@ import Container from '@mui/material/Container';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      
       <Provider store={store}>
         <Container fixed>
           <App />
         </Container>
-      </Provider>
+        </Provider>
+        
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
