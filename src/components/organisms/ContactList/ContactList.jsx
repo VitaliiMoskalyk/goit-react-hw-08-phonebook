@@ -2,7 +2,7 @@ import ContactItem from '../../molecules/ContactItem/ContactItem';
 import { useDispatch, useSelector } from 'react-redux';
 import Stack from '@mui/material/Stack';
 import Spinner from '../Spinner';
-import { getContacts } from 'redux/contacts/contactsOperations';
+import { getContacts, deleteContact } from 'redux/contacts/contactsOperations';
 import { useEffect } from 'react';
 
 const ContactList = () => {
@@ -15,26 +15,25 @@ const ContactList = () => {
 
   const { contacts, error, isFetching } = useSelector(state => state.contacts);
 
-  console.log(contacts);
-  // const [deleteContact] = useDeleteContactMutation();
+  // const [deleteContact] = dispatch(deleteContact());
 
-  // const deleteContacts = contact => {
-  //   deleteContact(contact.id);
-  //   // toast.success(`${contact.name} removed`);
-  // };
-
-  const findForFilter = () => {
-    contacts.filter(
-      ({ name }) => name
-      // .toLowerCase().includes(search.toLowerCase())
-    );
+  const deleteContacts = contact => {
+    dispatch(deleteContact(contact.id));
+    dispatch(getContacts());
+    // toast.success(`${contact.name} removed`);
   };
+
+  function findForFilter() {
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }
 
   return (
     <>
-      {isFetching && <Spinner />}
-      {error && <p>/{error.status}</p>}
-      {contacts && (
+      {isFetching ? (
+        <Spinner />
+      ) : (
         <Stack
           direction="row"
           flexWrap="wrap"
@@ -46,12 +45,13 @@ const ContactList = () => {
             <div key={contact.id}>
               <ContactItem
                 contact={contact}
-                // deleteFunction={() => deleteContacts(contact)}
+                deleteFunction={() => deleteContacts(contact)}
               />
             </div>
           ))}
         </Stack>
       )}
+      {error && <p>/{error.status}</p>}
     </>
   );
 };

@@ -24,9 +24,9 @@ export const AddContactForm = () => {
   const onSubmitForm = result => {
     const contactName = result.name;
     const normolizeData = contactName.toLowerCase();
-    data.find(contact => contact.name.toLowerCase() === normolizeData);
+    !data.find(result => result.name.toLowerCase() === normolizeData) &&
+      dispatch(postContact(result));
     // ? toast.error(`${contactName} is already in contacts`)
-    dispatch(postContact(result));
   };
 
   const contactsAdder = evt => {

@@ -13,6 +13,7 @@ const contactSlice = createSlice({
  
     extraReducers: {
         [getContacts.pending]: (state, action) => {
+            // state.contacts=(action.payload);
                 state.isFetching = true;  
         },
         [getContacts.fulfilled]: (state, action) => {
@@ -21,7 +22,8 @@ const contactSlice = createSlice({
             
         },
         [postContact.fulfilled]: (state, action) => {
-            state.contacts=state.contacts.push(action.payload);
+            // state.contacts = action.payload;
+            
             state.isFetching = false
         },
         // [logout.fulfilled]: (state, action) => {
