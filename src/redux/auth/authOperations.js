@@ -36,3 +36,17 @@ export const logout = createAsyncThunk(
         return data;
     }
 );
+
+export const getCurrentUser = createAsyncThunk(
+    '/users/current',
+    async (_, thunkApi) => {
+        const state=thunkApi.getState()
+        if (state.auth.token === null) {return}
+        else {
+            token.set(state.auth.token)
+        const {data} = await axios.get('https://connections-api.herokuapp.com/users/current');
+       
+        return data}
+       
+    }
+)

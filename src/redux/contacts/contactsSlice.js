@@ -26,12 +26,6 @@ const contactSlice = createSlice({
             
             state.isFetching = false
         },
-        // [logout.fulfilled]: (state, action) => {
-        //     state.user.name = null;
-        //     state.user.email=null;
-        //     state.token = null;
-        //     state.isLoaded = false;
-        // },
     }
 })
 

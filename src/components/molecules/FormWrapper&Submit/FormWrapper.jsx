@@ -13,5 +13,5 @@ export function FormWrapper({ children, onSubmit, submitButton }) {
 FormWrapper.propTypes = {
   children: propTypes.any,
   onSubmit: propTypes.func,
-  submitButton: propTypes.element,
+  submitButton: propTypes.node,
 };
