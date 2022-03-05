@@ -21,10 +21,17 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk(
     '/users/login',
-    async credentials=> {
-        const {data} = await axios.post('https://connections-api.herokuapp.com/users/login',credentials);
-        token.set(data.token)
-        return data;
+    async (credentials,thunkApi) => {
+        try {
+            const { data } = await axios.post('https://connections-api.herokuapp.com/users/login', credentials);
+            token.set(data.token)
+            return data;
+        }
+        catch (error) {
+            console.log(error);
+            return thunkApi.rejectWithValue(error)
+        }
+        
     }
 )
 

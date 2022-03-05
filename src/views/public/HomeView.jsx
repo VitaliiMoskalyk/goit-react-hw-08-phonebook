@@ -1,12 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ContactList from 'components/organisms/ContactList';
+import toast, { Toaster } from 'react-hot-toast';
 
 export function HomeView() {
   const auth = useSelector(state => state.auth.isLoaded);
+  const error = useSelector(state => state.auth.error);
 
   return (
     <>
+      {error && toast(`${error}`)}
       {auth ? (
         <ContactList />
       ) : (
@@ -20,6 +23,7 @@ export function HomeView() {
           </p>
         </>
       )}
+      <Toaster />
     </>
   );
 }
