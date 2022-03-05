@@ -1,5 +1,7 @@
 import { AddContactForm } from 'components/organisms/AddContactForm/AddContactForm';
 
-export default function AddContactView() {
+function AddContactView() {
   return <AddContactForm />;
 }
+
+export default AddContactView;

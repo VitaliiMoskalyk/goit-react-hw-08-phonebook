@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import ContactList from 'components/organisms/ContactList';
 import toast, { Toaster } from 'react-hot-toast';
 
-export function HomeView() {
+function HomeView() {
   const auth = useSelector(state => state.auth.isLoaded);
   const error = useSelector(state => state.auth.error);
 
@@ -27,3 +27,5 @@ export function HomeView() {
     </>
   );
 }
+
+export default HomeView;

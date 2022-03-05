@@ -1,5 +1,7 @@
 import { RegisterForm } from 'components/organisms/RegisterForm/RegisterForm';
 
-export function RegisterView() {
+function RegisterView() {
   return <RegisterForm />;
 }
+
+export default RegisterView;
