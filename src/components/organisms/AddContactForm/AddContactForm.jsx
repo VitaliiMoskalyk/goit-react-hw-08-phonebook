@@ -41,17 +41,19 @@ export const AddContactForm = () => {
   };
 
   return (
-    authSelector && (
-      <FormWrapper onSubmit={contactsAdder} submitButton={<AddIcCallIcon />}>
-        <NameLabel value={name} onchange={evt => setName(evt.target.value)} />
+    <>
+      {authSelector && (
+        <FormWrapper onSubmit={contactsAdder} submitButton={<AddIcCallIcon />}>
+          <NameLabel value={name} onchange={evt => setName(evt.target.value)} />
 
-        <PhoneLabel
-          value={number}
-          onchange={evt => setPhone(evt.target.value)}
-        />
+          <PhoneLabel
+            value={number}
+            onchange={evt => setPhone(evt.target.value)}
+          />
 
-        <Toaster />
-      </FormWrapper>
-    )
+          <Toaster />
+        </FormWrapper>
+      )}
+    </>
   );
 };
