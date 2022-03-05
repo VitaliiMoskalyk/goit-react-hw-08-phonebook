@@ -5,10 +5,20 @@ import Navbar from './organisms/Navbar/Navbar';
 import { getCurrentUser } from 'redux/auth/authOperations';
 import { lazy, Suspense } from 'react';
 
-const AddContactView = lazy(() => import('views/private/AddContactView'));
-const RegisterView = lazy(() => import('views/public/RegisterView'));
-const LoginView = lazy(() => import('views/public/LogInView'));
-const HomeView = lazy(() => import('views/public/HomeView'));
+const AddContactView = lazy(() =>
+  import(
+    'views/private/AddContactView' /* webpackChunkName: "AddContactView" */
+  )
+);
+const RegisterView = lazy(() =>
+  import('views/public/RegisterView' /* webpackChunkName: "RegisterView" */)
+);
+const LoginView = lazy(() =>
+  import('views/public/LogInView' /* webpackChunkName: "LoginView" */)
+);
+const HomeView = lazy(() =>
+  import('views/public/HomeView' /* webpackChunkName: "HomeView" */)
+);
 
 export const App = () => {
   const dispatch = useDispatch();
