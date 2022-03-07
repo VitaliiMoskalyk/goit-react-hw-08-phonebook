@@ -23,6 +23,7 @@ function HomeView() {
           </p>
         </>
       )}
+
       <Toaster />
     </>
   );
