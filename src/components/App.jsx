@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import Navbar from './organisms/Navbar/Navbar';
+import Navbar from './Navbar/Navbar';
 import { getCurrentUser } from 'redux/auth/authOperations';
 import { lazy, Suspense } from 'react';
 

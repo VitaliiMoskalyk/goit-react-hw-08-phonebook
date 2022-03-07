@@ -1,4 +1,4 @@
-import ContactItem from '../../molecules/ContactItem/ContactItem';
+import ContactItem from '../ContactItem/ContactItem';
 import { useDispatch, useSelector } from 'react-redux';
 import Stack from '@mui/material/Stack';
 import Spinner from '../Spinner';

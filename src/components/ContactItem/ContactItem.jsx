@@ -10,7 +10,7 @@ import {
   FlexContact,
 } from './contactItem.styled';
 //do as LAZY
-import defaultImage from 'components/atoms/images/default.png';
+import defaultImage from 'components/images/default.png';
 
 const ContactItem = ({ contact, deleteFunction }) => {
   const { id, name, number } = contact;

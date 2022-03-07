@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { FormWrapper } from '../../molecules/FormWrapper&Submit/FormWrapper';
-import AddIcCallIcon from '@mui/icons-material/AddIcCall';
-import NameLabel from 'components/atoms/inputs/labels/NameLabel';
-import PhoneLabel from 'components/atoms/inputs/labels/PhoneLabel';
+import { FormWrapper } from '../FormWrapper&Submit/FormWrapper';
+import NameLabel from 'components/labels/NameLabel';
+import PhoneLabel from 'components/labels/PhoneLabel';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postContact } from 'redux/contacts/contactsOperations';
@@ -43,7 +42,7 @@ export const AddContactForm = () => {
   return (
     <>
       {authSelector && (
-        <FormWrapper onSubmit={contactsAdder} submitButton={<AddIcCallIcon />}>
+        <FormWrapper onSubmit={contactsAdder} submitButton="Add contact">
           <NameLabel value={name} onchange={evt => setName(evt.target.value)} />
 
           <PhoneLabel

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../../redux/filter/filterAction';
-import Search from '../../atoms/inputs/search';
+import * as actions from '../../redux/filter/filterAction';
+import Search from '../search';
 
 const Filter = () => {
   const filter = useSelector(({ filter }) => filter);

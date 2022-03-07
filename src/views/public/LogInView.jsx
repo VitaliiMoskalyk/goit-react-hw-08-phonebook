@@ -1,7 +1,7 @@
-import EmailLabel from 'components/atoms/inputs/labels/EmailLabel';
-import PasswordLabel from 'components/atoms/inputs/labels/PasswordLabel';
+import EmailLabel from 'components/labels/EmailLabel';
+import PasswordLabel from 'components/labels/PasswordLabel';
 import { useState } from 'react';
-import { FormWrapper } from '../../components/molecules/FormWrapper&Submit/FormWrapper';
+import { FormWrapper } from '../../components/FormWrapper&Submit/FormWrapper';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/authOperations';
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +28,7 @@ const LoginView = () => {
   };
 
   return (
-    <FormWrapper onSubmit={userAdder} submitButton="+">
+    <FormWrapper onSubmit={userAdder} submitButton="Log In">
       <EmailLabel value={email} onchange={e => setEmail(e.target.value)} />
       <PasswordLabel
         value={password}

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
-import { FormWrapper } from 'components/molecules/FormWrapper&Submit/FormWrapper';
-import NameLabel from 'components/atoms/inputs/labels/NameLabel';
-import EmailLabel from 'components/atoms/inputs/labels/EmailLabel';
-import PasswordLabel from 'components/atoms/inputs/labels/PasswordLabel';
+import { FormWrapper } from 'components/FormWrapper&Submit/FormWrapper';
+import NameLabel from 'components/labels/NameLabel';
+import EmailLabel from 'components/labels/EmailLabel';
+import PasswordLabel from 'components/labels/PasswordLabel';
 
 export const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -27,7 +27,7 @@ export const RegisterForm = () => {
   };
 
   return (
-    <FormWrapper onSubmit={userAdder} submitButton="+">
+    <FormWrapper onSubmit={userAdder} submitButton="Register">
       <NameLabel value={name} onchange={e => setName(e.currentTarget.value)} />
       <EmailLabel value={email} onchange={e => setEmail(e.target.value)} />
       <PasswordLabel

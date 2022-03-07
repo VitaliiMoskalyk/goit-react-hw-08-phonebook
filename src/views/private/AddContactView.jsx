@@ -1,4 +1,4 @@
-import { AddContactForm } from 'components/organisms/AddContactForm/AddContactForm';
+import { AddContactForm } from 'components/AddContactForm/AddContactForm';
 
 function AddContactView() {
   return <AddContactForm />;

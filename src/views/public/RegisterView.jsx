@@ -1,4 +1,4 @@
-import { RegisterForm } from 'components/organisms/RegisterForm/RegisterForm';
+import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 function RegisterView() {
   return <RegisterForm />;
