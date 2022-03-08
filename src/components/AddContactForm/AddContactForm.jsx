@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FormWrapper } from '../FormWrapper&Submit/FormWrapper';
 import NameLabel from 'components/labels/NameLabel';
 import PhoneLabel from 'components/labels/PhoneLabel';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useMatch, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postContact } from 'redux/contacts/contactsOperations';
 import toast, { Toaster } from 'react-hot-toast';
@@ -15,6 +15,9 @@ export const AddContactForm = () => {
   const data = useSelector(state => state.contacts.contacts);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(location.pathname);
   let authSelector = useSelector(state => state.auth.isLoaded);
 
   const onSubmitForm = result => {
@@ -29,7 +32,7 @@ export const AddContactForm = () => {
     evt.preventDefault();
     const newContact = generateContact(name, number);
     onSubmitForm(newContact)
-      ? navigate()
+      ? navigate((location.pathname = '/'))
       : toast.error(`${name} is already in contacts`);
     setName('');
     setPhone('');
