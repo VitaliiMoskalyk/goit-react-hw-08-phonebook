@@ -29,7 +29,7 @@ export const AddContactForm = () => {
     evt.preventDefault();
     const newContact = generateContact(name, number);
     onSubmitForm(newContact)
-      ? navigate('/')
+      ? navigate()
       : toast.error(`${name} is already in contacts`);
     setName('');
     setPhone('');
