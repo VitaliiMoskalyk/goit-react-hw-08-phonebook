@@ -24,7 +24,7 @@ export default function Navbar() {
         sx={{ flexGrow: 1 }}
         style={{
           position: 'fixed',
-          zIndex: 1,
+          zIndex: 100,
           top: '0',
           left: 0,
           width: '100%',

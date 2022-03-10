@@ -4,7 +4,7 @@ import { useSpring, animated, config } from '@react-spring/web';
 const calc = (x, y, rect) => [
   -(y - rect.top - rect.height / 2) / 10,
   (x - rect.left - rect.width / 2) / 10,
-  1.1,
+  1.05,
 ];
 const trans = (x, y, s) =>
   `perspective(400px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
