@@ -8,12 +8,19 @@ import {
   Name,
   Number,
   FlexContact,
+  Phone,
 } from './contactItem.styled';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
 //do as LAZY
 import defaultImage from 'components/images/default.png';
 
 const ContactItem = ({ contact, deleteFunction }) => {
   const { id, name, number } = contact;
+  const label = {
+    inputProps: { 'aria-label': 'Checkbox demo' },
+  };
 
   return (
     <>
@@ -21,7 +28,7 @@ const ContactItem = ({ contact, deleteFunction }) => {
         <Image src={defaultImage} alt={name} />
         <FlexContact>
           <Name>{name}</Name>
-
+          <Phone>{number}</Phone>
           <Number href={`tel:${number}`}>
             <IconButton size="small" color="success">
               <CallIcon fontSize="large" />
@@ -36,6 +43,13 @@ const ContactItem = ({ contact, deleteFunction }) => {
           >
             <CloseIcon fontSize="small" />
           </IconButton>
+          <Checkbox
+            {...label}
+            icon={<FavoriteBorder />}
+            checkedIcon={<Favorite />}
+            color="secondary"
+            sx={{ ml: 20 }}
+          />
         </FlexContact>
       </ItemWrapper>
     </>

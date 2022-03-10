@@ -14,6 +14,7 @@ export default function NameLabel({ value, onchange }) {
       autoComplete="off"
       size="small"
       margin="normal"
+      placeholder="Anna Karenina"
       inputProps={{
         pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
       }}

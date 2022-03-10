@@ -7,12 +7,13 @@ margin: 10px;
 padding: 5px;
 display: flex;
 flex-direction:column;
-/* justify-content:center; */
+justify-items:center;
 align-items:center;
 width:220px;
 height:250px;
 
 border-radius:6px;
+box-shadow: 10px 9px 32px -12px rgba(0,0,0,0.2);
 
 background:linear-gradient(to bottom, 	#87CEEB 30%, #F0F8FF 30%) ;
 
@@ -30,9 +31,19 @@ export const Name = styled.p`
 width:120px;
 padding: 2px;
 overflow:hidden;
-margin: 0;
+margin:0;
 
 font-weight:bold;
+`
+
+export const Phone = styled.p`
+width:120px;
+padding: 2px;
+overflow:hidden;
+margin-top:10px;
+
+font-style:italic;
+font-weight:100px;
 `
 
 export const Number = styled.a`

@@ -14,6 +14,7 @@ export default function PhoneLabel({ value, onchange }) {
       autoComplete="off"
       size="small"
       margin="normal"
+      placeholder="+3805012345678"
       inputProps={{
         pattern: '^\\+[\\(\\-]?(\\d[\\(\\)\\-]?){11}\\d$',
       }}

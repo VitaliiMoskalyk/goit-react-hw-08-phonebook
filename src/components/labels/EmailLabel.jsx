@@ -14,6 +14,7 @@ export default function EmailLabel({ value, onchange }) {
       autoComplete="off"
       size="small"
       margin="normal"
+      placeholder="anna@mail.com"
       inputProps={{
         pattern: '^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[A-Za-z]+$',
       }}
