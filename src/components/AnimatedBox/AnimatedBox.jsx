@@ -2,8 +2,8 @@ import { useRef, useState } from 'react';
 import { useSpring, animated, config } from '@react-spring/web';
 
 const calc = (x, y, rect) => [
-  -(y - rect.top - rect.height / 2) / 10,
-  (x - rect.left - rect.width / 2) / 10,
+  -(y - rect.top - rect.height / 2) / 15,
+  (x - rect.left - rect.width / 2) / 15,
   1.05,
 ];
 const trans = (x, y, s) =>
