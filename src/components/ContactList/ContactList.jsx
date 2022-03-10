@@ -5,6 +5,7 @@ import Spinner from '../Spinner';
 import { getContacts, deleteContact } from 'redux/contacts/contactsOperations';
 import { useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import AnimatedBox from 'components/AnimatedBox/AnimatedBox';
 
 const ContactList = () => {
   const search = useSelector(({ search }) => search);
@@ -41,12 +42,14 @@ const ContactList = () => {
         >
           {findForFilter().length === 0 && <p>no contacts</p>}
           {findForFilter().map(contact => (
-            <div key={contact.id}>
-              <ContactItem
-                contact={contact}
-                deleteFunction={() => deleteContacts(contact)}
-              />
-            </div>
+            <AnimatedBox>
+              <div key={contact.id}>
+                <ContactItem
+                  contact={contact}
+                  deleteFunction={() => deleteContacts(contact)}
+                />
+              </div>
+            </AnimatedBox>
           ))}
         </Stack>
       )}

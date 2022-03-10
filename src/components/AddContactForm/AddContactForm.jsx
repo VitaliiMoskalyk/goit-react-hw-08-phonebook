@@ -17,7 +17,6 @@ export const AddContactForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location.pathname);
   let authSelector = useSelector(state => state.auth.isLoaded);
 
   const onSubmitForm = result => {
