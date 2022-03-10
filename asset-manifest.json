@@ -1,26 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.7acaea2f.css",
-    "main.js": "/static/js/main.b85e7292.js",
-    "AddContactView.js": "/static/js/AddContactView.8caba624.chunk.js",
-    "RegisterView.js": "/static/js/RegisterView.bbf8d751.chunk.js",
-    "LoginView.js": "/static/js/LoginView.d470a08c.chunk.js",
-    "HomeView.js": "/static/js/HomeView.d125427d.chunk.js",
-    "static/js/306.89854cec.chunk.js": "/static/js/306.89854cec.chunk.js",
+    "main.css": "/static/css/main.c6262eca.css",
+    "main.js": "/static/js/main.44e86691.js",
+    "AddContactView.js": "/static/js/AddContactView.4e503c46.chunk.js",
+    "RegisterView.js": "/static/js/RegisterView.47738d8f.chunk.js",
+    "LoginView.js": "/static/js/LoginView.7dab34e5.chunk.js",
+    "HomeView.js": "/static/js/HomeView.a396792b.chunk.js",
+    "static/js/5.81865c17.chunk.js": "/static/js/5.81865c17.chunk.js",
     "static/js/140.3ecaf1b8.chunk.js": "/static/js/140.3ecaf1b8.chunk.js",
+    "static/js/252.ed2e5a63.chunk.js": "/static/js/252.ed2e5a63.chunk.js",
     "static/media/default.png": "/static/media/default.ac91a4eac6e383b5e8a1.png",
     "index.html": "/index.html",
-    "main.7acaea2f.css.map": "/static/css/main.7acaea2f.css.map",
-    "main.b85e7292.js.map": "/static/js/main.b85e7292.js.map",
-    "AddContactView.8caba624.chunk.js.map": "/static/js/AddContactView.8caba624.chunk.js.map",
-    "RegisterView.bbf8d751.chunk.js.map": "/static/js/RegisterView.bbf8d751.chunk.js.map",
-    "LoginView.d470a08c.chunk.js.map": "/static/js/LoginView.d470a08c.chunk.js.map",
-    "HomeView.d125427d.chunk.js.map": "/static/js/HomeView.d125427d.chunk.js.map",
-    "306.89854cec.chunk.js.map": "/static/js/306.89854cec.chunk.js.map",
-    "140.3ecaf1b8.chunk.js.map": "/static/js/140.3ecaf1b8.chunk.js.map"
+    "main.c6262eca.css.map": "/static/css/main.c6262eca.css.map",
+    "main.44e86691.js.map": "/static/js/main.44e86691.js.map",
+    "AddContactView.4e503c46.chunk.js.map": "/static/js/AddContactView.4e503c46.chunk.js.map",
+    "RegisterView.47738d8f.chunk.js.map": "/static/js/RegisterView.47738d8f.chunk.js.map",
+    "LoginView.7dab34e5.chunk.js.map": "/static/js/LoginView.7dab34e5.chunk.js.map",
+    "HomeView.a396792b.chunk.js.map": "/static/js/HomeView.a396792b.chunk.js.map",
+    "5.81865c17.chunk.js.map": "/static/js/5.81865c17.chunk.js.map",
+    "140.3ecaf1b8.chunk.js.map": "/static/js/140.3ecaf1b8.chunk.js.map",
+    "252.ed2e5a63.chunk.js.map": "/static/js/252.ed2e5a63.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.b85e7292.js"
+    "static/css/main.c6262eca.css",
+    "static/js/main.44e86691.js"
   ]
 }
