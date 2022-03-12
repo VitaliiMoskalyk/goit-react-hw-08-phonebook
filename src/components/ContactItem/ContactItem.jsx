@@ -8,7 +8,6 @@ import {
   Name,
   Number,
   FlexContact,
-  Phone,
 } from './contactItem.styled';
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
@@ -28,10 +27,11 @@ const ContactItem = ({ contact, deleteFunction }) => {
         <Image src={defaultImage} alt={name} />
         <FlexContact>
           <Name>{name}</Name>
-          <Phone>{number}</Phone>
+
           <Number href={`tel:${number}`}>
             <IconButton size="small" color="success">
-              <CallIcon fontSize="large" />
+              <CallIcon fontSize="medium" />
+              {number}
             </IconButton>
           </Number>
 
@@ -48,7 +48,8 @@ const ContactItem = ({ contact, deleteFunction }) => {
             icon={<FavoriteBorder />}
             checkedIcon={<Favorite />}
             color="secondary"
-            sx={{ ml: 20, p: 0 }}
+            sx={{ ml: 20 }}
+            size="small"
           />
         </FlexContact>
       </ItemWrapper>

@@ -37,25 +37,11 @@ margin:0;
 font-weight:bold;
 `
 
-export const Phone = styled.p`
-width:220px;
-padding: 2px 10px;
-overflow:hidden;
-margin-top:10px;
-
-font-style:italic;
-font-weight:100px;
-`
-
 export const Number = styled.a`
-position: absolute;
-bottom:5px;
-left:50%;
-transform:translateX(-50%);
-width:120px;
+text-decoration:none;
+width:220px;
 padding: 2px;
 overflow:hidden;
-
 `
 
 export const FlexContact = styled.div`
