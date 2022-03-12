@@ -28,7 +28,8 @@ padding:2px;
 `
 
 export const Name = styled.p`
-width:120px;
+width:220px;
+height:30px;
 padding: 2px;
 overflow:hidden;
 margin:0;

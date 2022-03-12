@@ -48,7 +48,7 @@ const ContactItem = ({ contact, deleteFunction }) => {
             icon={<FavoriteBorder />}
             checkedIcon={<Favorite />}
             color="secondary"
-            sx={{ ml: 20 }}
+            sx={{ ml: 20, p: 0 }}
           />
         </FlexContact>
       </ItemWrapper>
