@@ -42,8 +42,8 @@ const ContactList = () => {
         >
           {findForFilter().length === 0 && <p>no contacts</p>}
           {findForFilter().map(contact => (
-            <AnimatedBox>
-              <div key={contact.id}>
+            <AnimatedBox key={contact.id}>
+              <div>
                 <ContactItem
                   contact={contact}
                   deleteFunction={() => deleteContacts(contact)}
