@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ContactList from 'components/ContactList';
 import toast, { Toaster } from 'react-hot-toast';
