@@ -30,7 +30,7 @@ padding:2px;
 export const Name = styled.p`
 width:220px;
 height:30px;
-padding: 2px;
+padding: 2px 10px;
 overflow:hidden;
 margin:0;
 
@@ -38,8 +38,8 @@ font-weight:bold;
 `
 
 export const Phone = styled.p`
-width:120px;
-padding: 2px;
+width:220px;
+padding: 2px 10px;
 overflow:hidden;
 margin-top:10px;
 
