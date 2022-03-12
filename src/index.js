@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
-import { App } from 'components/App';
 import { Provider } from 'react-redux';
-import {PersistGate} from 'redux-persist/integration/react'
 import { store,persistor } from 'redux/store';
-import './index.css';
 import Container from '@mui/material/Container';
+import { App } from 'components/App';
+import './index.css';
+
 
 ReactDOM.render(
   <React.StrictMode>

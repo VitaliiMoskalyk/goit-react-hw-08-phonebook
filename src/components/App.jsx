@@ -1,9 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
+import Navbar from './Navbar/Navbar';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import Navbar from './Navbar/Navbar';
-import { getCurrentUser } from 'redux/auth/authOperations';
 import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { getCurrentUser } from 'redux/auth/authOperations';
 
 const AddContactView = lazy(() =>
   import(
