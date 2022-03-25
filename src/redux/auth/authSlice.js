@@ -6,9 +6,10 @@ import {login,getCurrentUser,logout} from 'redux/auth/authOperations';
 
 const initialState = {
     user: { name: null, email: null },
-        token: null,
+    token: null,
     isLoaded: false,
-        error:null
+    error: null,
+    isRefresh:false,
 }
 const authSlice = createSlice({
     name:'auth',
@@ -38,9 +39,16 @@ const authSlice = createSlice({
             state.token = null;
             state.isLoaded = false;
         },
+        [getCurrentUser.pending]: (state, action) => {
+            state.isRefresh = true;
+        },
         [getCurrentUser.fulfilled]: (state, action) => {
             state.user = action.payload;
             state.isLoaded = true;
+            state.isRefresh = false;
+        },
+        [getCurrentUser.rejected]: (state, action) => {
+            state.isRefresh = false;
         },
     }
 })

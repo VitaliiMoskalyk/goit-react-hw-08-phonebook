@@ -2,7 +2,6 @@ import React from 'react';
 import useMeasure from 'react-use-measure';
 import { useTrail, animated } from '@react-spring/web';
 
-
 const fast = { tension: 1200, friction: 40 };
 const slow = { mass: 10, tension: 200, friction: 50 };
 const trans = (x: number, y: number) =>

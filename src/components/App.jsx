@@ -1,9 +1,10 @@
 import Navbar from './Navbar/Navbar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getCurrentUser } from 'redux/auth/authOperations';
+import Skeleton from '@mui/material/Skeleton';
 
 const AddContactView = lazy(() =>
   import(
@@ -22,12 +23,20 @@ const HomeView = lazy(() =>
 
 export const App = () => {
   const dispatch = useDispatch();
+  const isrefreshing = useSelector(state => state.auth.isRefresh);
 
   useEffect(() => {
     dispatch(getCurrentUser());
   }, [dispatch]);
 
-  return (
+  return isrefreshing ? (
+    <Skeleton
+      variant="rectangular"
+      width={'100vw'}
+      height={80}
+      style={{ position: 'absolute', left: 0 }}
+    />
+  ) : (
     <>
       <Navbar />
       <Suspense fallback={<p>Loading...</p>}>
